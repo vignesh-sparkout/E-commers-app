@@ -1,0 +1,22 @@
+.title {
+  text-align: center;
+}
+
+.empty {
+  text-align: center;
+  color: gray;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+
+button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+}

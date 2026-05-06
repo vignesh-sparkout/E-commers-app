@@ -1,0 +1,41 @@
+.title {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.price {
+  color: green;
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
