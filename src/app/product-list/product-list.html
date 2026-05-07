@@ -1,22 +1,33 @@
 <section class="products-page">
+
   <div class="hero">
-    <p class="eyebrow">Featured Collection</p>
-    <h2 class="title">Products</h2>
+    <h2 class="title">Product Categories</h2>
   </div>
 
   <div class="grid">
-    <article class="card" *ngFor="let p of products">
+
+    <article class="card"
+             *ngFor="let category of categories">
 
       <div class="card-body">
-        <h3>{{ p.name }}</h3>
-        <p class="description">{{ p.description }}</p>
-        <p class="price">&#8377; {{ p.price }}</p>
+
+        <h3>{{ category }}</h3>
 
         <div class="actions">
-          <a class="link-button" [routerLink]="['/product', p.id]">View Details</a>
-          <button type="button" (click)="addToCart(p)">Add to Cart</button>
+
+          <a class="link-button"
+             [routerLink]="['/category', category]">
+
+            View Products
+
+          </a>
+
         </div>
+
       </div>
+
     </article>
+
   </div>
+
 </section>

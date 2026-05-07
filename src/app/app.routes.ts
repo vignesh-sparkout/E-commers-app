@@ -5,6 +5,13 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
 
+    {
+    path: 'login',
+    loadComponent: () =>
+      import('./login/login')
+        .then(m => m.Login)
+  },
+
   {
     path: 'products',
     loadComponent: () =>
@@ -25,11 +32,11 @@ export const routes: Routes = [
       import('./cart/cart')
         .then(m => m.Cart)
   },
-
   {
-    path: 'login',
-    loadComponent: () =>
-      import('./login/login')
-        .then(m => m.Login)
-  }
+  path: 'category/:name',
+  loadComponent: () =>
+    import('./category-products/category-products')
+      .then(m => m.CategoryProducts)
+},
+
 ];

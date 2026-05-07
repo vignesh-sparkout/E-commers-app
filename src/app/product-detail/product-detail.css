@@ -1,62 +1,89 @@
 .detail-page {
-  padding: 40px 24px 56px;
+  padding: 60px 24px;
 }
 
 .detail-card {
-  max-width: 640px;
-  margin: 0 auto;
-  text-align: center;
+  max-width: 700px;
+  margin: auto;
+
   background: white;
-  border: 1px solid #dbe4f0;
   border-radius: 24px;
-  padding: 40px 28px;
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+  padding: 40px;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+
+  text-align: center;
 }
 
 .eyebrow {
-  margin: 0 0 10px;
   color: #2563eb;
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 2px;
   text-transform: uppercase;
+
+  margin-bottom: 10px;
 }
 
-h2 {
+.detail-card h2 {
   margin: 0;
+  font-size: 38px;
   color: #0f172a;
 }
 
 .detail-copy {
-  margin: 14px 0 0;
   color: #64748b;
-  line-height: 1.6;
-}
-
-button {
-  margin-top: 22px;
-  padding: 12px 18px;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #1d4ed8;
+  line-height: 1.7;
+  margin-top: 18px;
 }
 
 .price {
+  font-size: 34px;
   color: #15803d;
-  font-size: 28px;
+  margin-top: 24px;
   font-weight: bold;
-  margin-top: 20px;
 }
 
 .actions {
   display: flex;
-  gap: 12px;
   justify-content: center;
-  margin-top: 24px;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+button {
+  padding: 14px 22px;
+  border: none;
+  border-radius: 14px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+button:first-child {
+  background: #2563eb;
+  color: white;
+}
+
+button:last-child {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:first-child:hover {
+  background: #1d4ed8;
+}
+
+button:last-child:hover {
+  background: #cbd5e1;
 }

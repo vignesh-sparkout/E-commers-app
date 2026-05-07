@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CartService } from '../Service/cart';
-import { Product, ProductService } from '../Service/product.service';
 
 @Component({
   standalone: true,
@@ -12,19 +10,11 @@ import { Product, ProductService } from '../Service/product.service';
   styleUrl: './product-list.css',
 })
 export class ProductList {
-  products: Product[] = [];
 
-  constructor(
-    private cartService: CartService,
-    private productService: ProductService
-  ) {}
+  categories = [
+    'Laptop',
+    'Mobile',
+    'Watch'
+  ];
 
-  ngOnInit() {
-    this.products = this.productService.getProducts();
-  }
-
-  addToCart(product: Product) {
-    this.cartService.add(product);
-    alert('Added to cart');
-  }
 }
