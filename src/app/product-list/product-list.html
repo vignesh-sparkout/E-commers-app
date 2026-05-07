@@ -1,18 +1,22 @@
-<h2 class="title">Products</h2>
-
-<div class="grid">
-  <div class="card" *ngFor="let p of products">
-
-    <h3>{{ p.name }}</h3>
-    <p class="price">₹ {{ p.price }}</p>
-
-    <div class="actions">
-      <a [routerLink]="['/product', p.id]">View</a>
-
-      <button (click)="addToCart(p)">
-        Add to Cart
-      </button>
-    </div>
-
+<section class="products-page">
+  <div class="hero">
+    <p class="eyebrow">Featured Collection</p>
+    <h2 class="title">Products</h2>
   </div>
-</div>
+
+  <div class="grid">
+    <article class="card" *ngFor="let p of products">
+
+      <div class="card-body">
+        <h3>{{ p.name }}</h3>
+        <p class="description">{{ p.description }}</p>
+        <p class="price">&#8377; {{ p.price }}</p>
+
+        <div class="actions">
+          <a class="link-button" [routerLink]="['/product', p.id]">View Details</a>
+          <button type="button" (click)="addToCart(p)">Add to Cart</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

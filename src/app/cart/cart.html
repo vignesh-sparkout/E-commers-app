@@ -1,16 +1,34 @@
-<h2 class="title">Cart</h2>
+<section class="cart-page">
+  <div class="cart-header">
+    <h2 class="title">Your Cart</h2>
+    <p>Review your selected items before checkout.</p>
+  </div>
 
-<div *ngIf="cartService.cart().length === 0" class="empty">
-  Cart is empty 
+  <div *ngIf="cartService.cart().length === 0" class="empty">
+    <h3>Cart is empty</h3>
+    <p>Add products from the catalog to see them here.</p>
+  </div>
+
+  <div class="cart-list" *ngIf="cartService.cart().length > 0">
+    <div class="cart-item" *ngFor="let item of cartService.cart(); let i = index">
+      <div>
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+
+      <div class="item-actions">
+        <span class="price">&#8377; {{ item.price }}</span>
+        <button type="button" (click)="cartService.remove(i)">Remove</button>
+      </div>
+    </div>
+
+    <div class="cart-total"
+     *ngIf="cartService.cart().length > 0">
+
+  <h2>
+    Total: ₹ {{ cartService.total() }}
+  </h2>
+
 </div>
-
-<div class="cart-item" *ngFor="let item of cartService.cart(); let i = index">
-
-  <p>{{ item.name }}</p>
-  <p>₹ {{ item.price }}</p>
-
-  <button (click)="cartService.remove(i)">
-    Remove
-  </button>
-
-</div>
+  </div>
+</section>

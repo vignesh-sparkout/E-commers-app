@@ -2,25 +2,29 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CartService } from '../Service/cart';
+import { Product, ProductService } from '../Service/product.service';
+
 @Component({
-  standalone:true,
+  standalone: true,
   selector: 'app-product-list',
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })
 export class ProductList {
+  products: Product[] = [];
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private productService: ProductService
+  ) {}
 
-products = [
-  { id: 1, name: 'Laptop', price: 50000 },
-  { id: 2, name: 'Mobile', price: 20000 }
-];
+  ngOnInit() {
+    this.products = this.productService.getProducts();
+  }
 
-  addToCart(p: any) {
-    this.cartService.add(p);
-    alert('Added to cart ');
+  addToCart(product: Product) {
+    this.cartService.add(product);
+    alert('Added to cart');
   }
 }
-

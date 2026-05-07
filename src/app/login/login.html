@@ -1,11 +1,10 @@
 <div class="login-container">
   <div class="login-card">
-
+    <p class="eyebrow">Welcome Back</p>
     <h2>Login</h2>
+    <p class="intro">Sign in to continue exploring the latest products.</p>
 
     <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-
-      <!-- Name -->
       <div class="field">
         <label>Full Name</label>
         <input
@@ -21,7 +20,6 @@
         </small>
       </div>
 
-      <!-- Email -->
       <div class="field">
         <label>Email</label>
         <input
@@ -38,12 +36,9 @@
         </small>
       </div>
 
-      <!-- Button -->
       <button type="submit" [disabled]="userForm.invalid">
         Login
       </button>
-
     </form>
-
   </div>
 </div>

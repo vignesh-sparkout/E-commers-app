@@ -1,18 +1,40 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+
+import { Product, ProductService } from '../Service/product.service';
+import { CartService } from '../Service/cart';
 
 @Component({
-  standalone:true,
+  standalone: true,
   selector: 'app-product-detail',
-  imports: [],
+  imports: [RouterModule, CommonModule],
   templateUrl: './product-detail.html',
   styleUrl: './product-detail.css',
 })
-export class ProductDetail implements OnInit{
-  
-  constructor(private route:ActivatedRoute){}
-  id:any;
+export class ProductDetail implements OnInit {
+
+  product?: Product;
+
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService,
+    private cartService: CartService
+  ) {}
+
   ngOnInit() {
-  this.id = this.route.snapshot.paramMap.get('id');
-}
+
+    const id = Number(
+      this.route.snapshot.paramMap.get('id')
+    );
+
+    this.product = this.productService.getProductById(id);
+  }
+
+  addToCart() {
+    if(this.product){
+      this.cartService.add(this.product);
+      alert('Added to cart');
+    }
+  }
 }

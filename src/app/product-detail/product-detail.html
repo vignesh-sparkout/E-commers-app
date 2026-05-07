@@ -1,7 +1,33 @@
-<div class="detail">
-  <h2>Product Detail</h2>
+<section class="detail-page">
 
-  <p>Product ID: {{ id }}</p>
+  <div class="detail-card" *ngIf="product">
 
-  <button routerLink="/products">Back</button>
-</div>
+    <p class="eyebrow">Product Overview</p>
+
+    <h2>{{ product.name }}</h2>
+
+    <p class="detail-copy">
+      {{ product.description }}
+    </p>
+
+    <h3 class="price">
+      ₹ {{ product.price }}
+    </h3>
+
+    <div class="actions">
+
+      <button type="button"
+              (click)="addToCart()">
+        Add To Cart
+      </button>
+
+      <button type="button"
+              routerLink="/products">
+        Back
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
