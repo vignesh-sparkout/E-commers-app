@@ -1,17 +1,30 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, computed } from '@angular/core';
+import { Product } from './product.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  //Add product
-    cart = signal<any[]>([]);
-    add(product: any) {
+
+  cart = signal<Product[]>([]);
+
+  add(product: Product) {
     this.cart.update(items => [...items, product]);
   }
-// remove Product
-  remove(index: number) {
-    this.cart.update(items => items.filter((_, i) => i !== index));
-  }
+// total Calculate
+  total = computed(() => {
 
+  return this.cart().reduce(
+    (sum, item) => sum + item.price,
+    0
+  );
+
+});
+
+// remove item from cart
+  remove(index: number) {
+    this.cart.update(items =>
+      items.filter((_, i) => i !== index)
+    );
+  }
 }
