@@ -1,19 +1,37 @@
 <nav class="header">
-  <a class="logo" routerLink="/products" routerLinkActive="active-link">MyShop</a>
+
+  <a class="logo" routerLink="/products">
+    MyShop
+  </a>
 
   <div class="nav-links">
-    <a routerLink="/products" routerLinkActive="active-link">Products</a>
-    <a routerLink="/cart" routerLinkActive="active-link">Cart</a>
-    <a routerLink="/login" routerLinkActive="active-link">Login</a>
+
+    <a routerLink="/products">
+      Products
+    </a>
+
+    <a routerLink="/cart">
+      Cart
+    </a>
+
+    <!-- Show only when NOT logged in -->
+    <a
+      routerLink="/login"
+      *ngIf="!isLoggedIn()">
+
+      Login
+
+    </a>
+
   </div>
 
-    <a *ngIf="!isLoggedIn()"
-   routerLink="/login">
-   Login
-</a>
+  <!-- Show only when logged in -->
+  <button
+    *ngIf="isLoggedIn()"
+    (click)="logout()">
 
-<button *ngIf="isLoggedIn()"
-        (click)="logout()">
-  Logout
-</button>
+    Logout
+
+  </button>
+
 </nav>

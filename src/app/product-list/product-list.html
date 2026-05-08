@@ -1,7 +1,19 @@
 <section class="products-page">
 
   <div class="hero">
-    <h2 class="title">Product Categories</h2>
+
+    <p class="eyebrow">
+      Explore Collection
+    </p>
+
+    <h2 class="title">
+      Product Categories
+    </h2>
+
+    <p class="subtitle">
+      Discover premium gadgets and latest tech products
+    </p>
+
   </div>
 
   <div class="grid">
@@ -9,20 +21,42 @@
     <article class="card"
              *ngFor="let category of categories">
 
+      <div class="card-top">
+
+        <div class="icon">
+
+          <span *ngIf="category === 'Laptop'">
+            💻
+          </span>
+
+          <span *ngIf="category === 'Mobile'">
+            📱
+          </span>
+
+          <span *ngIf="category === 'Watch'">
+            ⌚
+          </span>
+
+        </div>
+
+      </div>
+
       <div class="card-body">
 
         <h3>{{ category }}</h3>
 
-        <div class="actions">
+        <p>
+          Explore top branded
+          {{ category.toLowerCase() }}
+          with premium quality and latest features.
+        </p>
 
-          <a class="link-button"
-             [routerLink]="['/category', category]">
+        <a class="link-button"
+           [routerLink]="['/category', category]">
 
-            View Products
+          View Products →
 
-          </a>
-
-        </div>
+        </a>
 
       </div>
 

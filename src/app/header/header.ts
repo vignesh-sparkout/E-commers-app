@@ -1,20 +1,25 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { Router } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
+import { CommonModule } from '@angular/common';
 
 @Component({
-  standalone:true,
+  standalone: true,
   selector: 'app-header',
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
 export class Header {
 
-  constructor(private router: Router,private toastr: ToastrService) {}
+  constructor(
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
 
   logout() {
 
@@ -29,8 +34,4 @@ export class Header {
       this.router.navigate(['/login']);
     }, 1000);
   }
-
-  isLoggedIn() {
-  return !!localStorage.getItem('token');
-}
 }

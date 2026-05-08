@@ -75,3 +75,20 @@ button:hover {
 .active-link {
   color: #93c5fd;
 }
+.cart-link {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+
+  top: -4px;
+  right: -8px;
+
+  width: 10px;
+  height: 10px;
+
+  background: #dc2626;
+
+  border-radius: 50%;
+}

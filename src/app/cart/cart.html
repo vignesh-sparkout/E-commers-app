@@ -1,34 +1,99 @@
 <section class="cart-page">
+
   <div class="cart-header">
-    <h2 class="title">Your Cart</h2>
-    <p>Review your selected items before checkout.</p>
+
+    <h2 class="title">
+      Your Cart
+    </h2>
+
+    <p>
+      Review your selected items before checkout.
+    </p>
+
   </div>
 
-  <div *ngIf="cartService.cart().length === 0" class="empty">
+  <!-- Empty Cart -->
+
+  <div *ngIf="cartService.cart().length === 0"
+       class="empty">
+
     <h3>Cart is empty</h3>
-    <p>Add products from the catalog to see them here.</p>
+
+    <p>
+      Add products from the catalog to see them here.
+    </p>
+
   </div>
 
-  <div class="cart-list" *ngIf="cartService.cart().length > 0">
-    <div class="cart-item" *ngFor="let item of cartService.cart(); let i = index">
+  <!-- Cart Items -->
+
+  <div class="cart-list"
+       *ngIf="cartService.cart().length > 0">
+
+    <div class="cart-item"
+         *ngFor="let item of cartService.cart(); let i = index">
+
       <div>
+
         <h3>{{ item.name }}</h3>
+
         <p>{{ item.description }}</p>
+
+        <h4>
+          Quantity: {{ item.quantity }}
+        </h4>
+
       </div>
 
       <div class="item-actions">
-        <span class="price">&#8377; {{ item.price }}</span>
-        <button type="button" (click)="cartService.remove(i)">Remove</button>
+
+        <span class="price">
+          ₹ {{ item.price * item.quantity }}
+        </span>
+
+        <!-- Quantity Buttons -->
+
+        <div class="qty-buttons">
+
+          <button class="qty-btn"
+                  (click)="decrease(i)">
+
+            -
+
+          </button>
+
+          <button class="qty-btn"
+                  (click)="increase(i)">
+
+            +
+
+          </button>
+
+        </div>
+
+        <!-- Remove Button -->
+
+        <button class="remove-btn"
+                (click)="removeItem(i)">
+
+          Remove
+
+        </button>
+
       </div>
+
     </div>
 
-    <div class="cart-total"
-     *ngIf="cartService.cart().length > 0">
+    <!-- Total -->
 
-  <h2>
-    Total: ₹ {{ cartService.total() }}
-  </h2>
+    <div class="cart-total">
 
-</div>
+      <h2>
+        Total: ₹ {{ cartService.total() }}
+      </h2>
+
+    </div>
+
   </div>
+
 </section>
