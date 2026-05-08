@@ -1,36 +1,60 @@
+
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router} from '@angular/router';
-
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
-  standalone:true,
+  standalone: true,
   selector: 'app-login',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class Login {
 
- constructor (private router:Router){}
+  constructor(private router: Router) { }
 
   user = {
-    name:'',
-    email:''
-  }
+    email: '',
+    password: ''
+  };
+
+  errorMessage = '';
+  successMessage = '';
 
   onSubmit(form: any) {
+
     if (form.valid) {
 
-      // fake token (simulate login)
-      localStorage.setItem('token', 'abc123');
+      const storedUser = localStorage.getItem('registeredUser');
 
-      alert('Login Successful ');
+      if (storedUser) {
 
-      // redirect
-      this.router.navigate(['/products']);
+        const parsedUser = JSON.parse(storedUser);
+
+        if (
+          parsedUser.email === this.user.email &&
+          parsedUser.password === this.user.password
+        ) {
+
+          localStorage.setItem('token', 'abc123');
+
+          this.successMessage = 'Login Successful';
+
+          setTimeout(() => {
+
+            this.successMessage = '';
+
+            this.router.navigate(['/products']);
+
+          }, 1000);
+
+        } else {
+
+          this.errorMessage = 'Invalid email or password';
+        }
+      }
     }
   }
-
 }

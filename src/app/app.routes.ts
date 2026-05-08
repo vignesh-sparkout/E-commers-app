@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth-guard';
 
 
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'products', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 
     {
     path: 'login',
@@ -13,7 +14,15 @@ export const routes: Routes = [
   },
 
   {
+    path: 'register',
+    loadComponent: () =>
+      import('./register/register')
+          .then(m=> m.Register)
+  },
+ 
+  {
     path: 'products',
+    canActivate:[authGuard],
     loadComponent: () =>
       import('./product-list/product-list')
         .then(m => m.ProductList)
@@ -21,6 +30,7 @@ export const routes: Routes = [
 
   {
     path: 'product/:id',
+     canActivate:[authGuard],
     loadComponent: () =>
       import('./product-detail/product-detail')
         .then(m => m.ProductDetail)
@@ -28,6 +38,7 @@ export const routes: Routes = [
 
   {
     path: 'cart',
+    canActivate:[authGuard],
     loadComponent: () =>
       import('./cart/cart')
         .then(m => m.Cart)
@@ -38,5 +49,7 @@ export const routes: Routes = [
     import('./category-products/category-products')
       .then(m => m.CategoryProducts)
 },
+
+
 
 ];

@@ -2,43 +2,96 @@
   <div class="login-card">
     <p class="eyebrow">Welcome Back</p>
     <h2>Login</h2>
-    <p class="intro">Sign in to continue exploring the latest products.</p>
+    <form #userForm="ngForm"
+      (ngSubmit)="onSubmit(userForm)">
 
-    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-      <div class="field">
-        <label>Full Name</label>
-        <input
-          type="text"
-          name="name"
-          [(ngModel)]="user.name"
-          required
-          #name="ngModel"
-          placeholder="Enter your name" />
+  <!-- Email -->
 
-        <small *ngIf="name.invalid && name.touched">
-          Name is required
-        </small>
-      </div>
+  <div class="field">
 
-      <div class="field">
-        <label>Email</label>
-        <input
-          type="email"
-          name="email"
-          [(ngModel)]="user.email"
-          required
-          email
-          #email="ngModel"
-          placeholder="Enter your email" />
+    <label>Email</label>
 
-        <small *ngIf="email.invalid && email.touched">
-          Enter a valid email
-        </small>
-      </div>
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="user.email"
+      required
+      email
+      #email="ngModel"
+      placeholder="Enter your email" />
 
-      <button type="submit" [disabled]="userForm.invalid">
-        Login
-      </button>
-    </form>
+    <small *ngIf="email.invalid && email.touched">
+
+      <span *ngIf="email.errors?.['required']">
+        Email is required
+      </span>
+
+      <span *ngIf="email.errors?.['email']">
+        Enter valid email
+      </span>
+
+    </small>
+
   </div>
-</div>
+
+  <!-- Password -->
+
+  <div class="field">
+
+    <label>Password</label>
+
+    <input
+      type="password"
+      name="password"
+      [(ngModel)]="user.password"
+      required
+      minlength="6"
+      #password="ngModel"
+      placeholder="Enter your password" />
+
+    <small *ngIf="password.invalid && password.touched">
+
+      <span *ngIf="password.errors?.['required']">
+        Password is required
+      </span>
+
+      <span *ngIf="password.errors?.['minlength']">
+        Password must be minimum 6 characters
+      </span>
+
+    </small>
+
+  </div>
+
+  <!-- Invalid Login -->
+
+  <small *ngIf="errorMessage">
+    {{ errorMessage }}
+  </small>
+
+
+  <p class="success-message"
+   *ngIf="successMessage">
+
+  {{ successMessage }}
+
+</p>
+
+  <button type="submit"
+          [disabled]="userForm.invalid">
+
+    Login
+
+  </button>
+
+  <p class="register-link">
+
+    Don't have an account?
+
+    <a routerLink="/register">
+      Register
+    </a>
+
+  </p>
+
+</form>

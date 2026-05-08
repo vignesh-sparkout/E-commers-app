@@ -54,3 +54,21 @@
     margin-left: 0;
   }
 }
+button {
+  background: #2563eb;
+  color: white;
+
+  border: none;
+
+  padding: 8px 14px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+button:hover {
+  background: #1d4ed8;
+}

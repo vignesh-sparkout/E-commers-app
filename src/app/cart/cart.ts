@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { CartService } from '../Service/cart';
+import { CartService } from '../service/cart';
 
 @Component({
   standalone:true,

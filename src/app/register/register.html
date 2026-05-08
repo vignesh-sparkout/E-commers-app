@@ -1,0 +1,146 @@
+<div class="login-container">
+
+  <div class="login-card">
+
+    <p class="eyebrow">Create Account</p>
+
+    <h2>Register</h2>
+
+    <form #registerForm="ngForm"
+      (ngSubmit)="onSubmit(registerForm)">
+
+  <!-- Name -->
+
+  <div class="field">
+
+    <label>Name</label>
+
+    <input
+      type="text"
+      name="name"
+      [(ngModel)]="user.name"
+      required
+      minlength="3"
+      #name="ngModel">
+
+    <small *ngIf="name.invalid && name.touched">
+
+      <span *ngIf="name.errors?.['required']">
+        Name is required
+      </span>
+
+      <span *ngIf="name.errors?.['minlength']">
+        Minimum 3 characters required
+      </span>
+
+    </small>
+
+  </div>
+
+  <!-- Email -->
+
+  <div class="field">
+
+    <label>Email</label>
+
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="user.email"
+      required
+      email
+      #email="ngModel">
+
+    <small *ngIf="email.invalid && email.touched">
+
+      <span *ngIf="email.errors?.['required']">
+        Email is required
+      </span>
+
+      <span *ngIf="email.errors?.['email']">
+        Enter valid email
+      </span>
+
+    </small>
+
+  </div>
+
+  <!-- Password -->
+
+  <div class="field">
+
+    <label>Password</label>
+
+    <input
+      type="password"
+      name="password"
+      [(ngModel)]="user.password"
+      required
+      minlength="6"
+      #password="ngModel">
+
+    <small *ngIf="password.invalid && password.touched">
+
+      <span *ngIf="password.errors?.['required']">
+        Password is required
+      </span>
+
+      <span *ngIf="password.errors?.['minlength']">
+        Password must be minimum 6 characters
+      </span>
+
+    </small>
+
+  </div>
+  <!-- Confirm Password -->
+
+<div class="field">
+
+  <label>Confirm Password</label>
+
+  <input
+    type="password"
+    name="confirmPassword"
+    [(ngModel)]="user.confirmPassword"
+    required
+    minlength="6"
+    #confirmPassword="ngModel">
+
+  <small *ngIf="confirmPassword.invalid &&
+                 confirmPassword.touched">
+
+    <span *ngIf="confirmPassword.errors?.['required']">
+      Confirm password is required
+    </span>
+
+    <span *ngIf="confirmPassword.errors?.['minlength']">
+      Minimum 6 characters required
+    </span>
+
+  </small>
+
+</div>
+
+<!-- Password Match Error -->
+
+<small *ngIf="passwordMismatch">
+
+  Password and Confirm Password do not match
+
+</small>
+
+<p class="success-message"
+   *ngIf="successMessage">
+
+  {{ successMessage }}
+
+</p>
+
+  <button type="submit"
+          [disabled]="registerForm.invalid">
+
+    Register
+
+  </button>
+
+</form>

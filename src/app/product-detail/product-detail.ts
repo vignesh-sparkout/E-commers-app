@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 
-import { Product, ProductService } from '../Service/product.service';
-import { CartService } from '../Service/cart';
+import { Product, ProductService } from '../service/product.service';
+import { CartService } from '../service/cart';
 
 @Component({
   standalone: true,

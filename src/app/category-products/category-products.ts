@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 
-import { Product, ProductService } from '../Service/product.service';
+import { Product, ProductService } from '../service/product.service';
 
 @Component({
   standalone: true,
