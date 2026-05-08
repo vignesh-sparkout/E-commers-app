@@ -172,13 +172,3 @@ button:disabled {
   }
 
 }
-.success-message {
-  margin-top: 10px;
-
-  text-align: center;
-
-  color: #15803d;
-
-  font-size: 14px;
-  font-weight: 600;
-}

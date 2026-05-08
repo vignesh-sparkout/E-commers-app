@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   standalone: true,
@@ -13,15 +14,14 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class Login {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private toastr: ToastrService) { }
 
   user = {
     email: '',
     password: ''
   };
 
-  errorMessage = '';
-  successMessage = '';
+
 
   onSubmit(form: any) {
 
@@ -40,19 +40,18 @@ export class Login {
 
           localStorage.setItem('token', 'abc123');
 
-          this.successMessage = 'Login Successful';
 
+          this.toastr.success(
+            'Login Successful',
+            'Success'
+          );
           setTimeout(() => {
-
-            this.successMessage = '';
-
             this.router.navigate(['/products']);
-
           }, 1000);
-
         } else {
-
-          this.errorMessage = 'Invalid email or password';
+          this.toastr.error(
+            'Invalid Email or Password',
+            'Login Failed')
         }
       }
     }

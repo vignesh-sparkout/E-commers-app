@@ -1,22 +1,36 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   standalone:true,
   selector: 'app-header',
-  imports: [RouterModule],
+  imports: [RouterModule,CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
 export class Header {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private toastr: ToastrService) {}
 
-logout() {
+  logout() {
 
-  localStorage.removeItem('token');
+    localStorage.removeItem('token');
 
-  this.router.navigate(['/login']);
+    this.toastr.success(
+      'Logged Out Successfully',
+      'Success'
+    );
+
+    setTimeout(() => {
+      this.router.navigate(['/login']);
+    }, 1000);
+  }
+
+  isLoggedIn() {
+  return !!localStorage.getItem('token');
 }
 }

@@ -22,7 +22,7 @@ export const routes: Routes = [
  
   {
     path: 'products',
-    canActivate:[authGuard],
+    // canActivate:[authGuard],
     loadComponent: () =>
       import('./product-list/product-list')
         .then(m => m.ProductList)
@@ -30,7 +30,7 @@ export const routes: Routes = [
 
   {
     path: 'product/:id',
-     canActivate:[authGuard],
+    //  canActivate:[authGuard],
     loadComponent: () =>
       import('./product-detail/product-detail')
         .then(m => m.ProductDetail)
@@ -38,7 +38,7 @@ export const routes: Routes = [
 
   {
     path: 'cart',
-    canActivate:[authGuard],
+    // canActivate:[authGuard],
     loadComponent: () =>
       import('./cart/cart')
         .then(m => m.Cart)

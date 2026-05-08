@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CartService } from '../service/cart';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   standalone:true,
@@ -10,7 +11,15 @@ import { CartService } from '../service/cart';
   styleUrl: './cart.css',
 })
 export class Cart {
-  constructor(public cartService: CartService) {}
+  constructor(public cartService: CartService,  private toastr: ToastrService) {}
 
+removeItem(index:number){
 
+  this.cartService.remove(index);
+
+  this.toastr.info(
+    'Product Removed',
+    'Cart'
+  );
+}
 }
