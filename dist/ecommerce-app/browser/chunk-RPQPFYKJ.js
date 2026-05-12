@@ -1,1 +1,0 @@
-import{I as r,ba as n}from"./chunk-MCJEDM5P.js";var o=class e{cart=n([]);add(a){this.cart.update(t=>[...t,a])}remove(a){this.cart.update(t=>t.filter((i,c)=>c!==a))}static \u0275fac=function(t){return new(t||e)};static \u0275prov=r({token:e,factory:e.\u0275fac,providedIn:"root"})};export{o as a};

@@ -1,33 +1,46 @@
 <section class="products-page">
-
-  <h2 class="title">
-    Products
-  </h2>
+  <div class="hero">
+    <p class="eyebrow">Selected Collection</p>
+    <h2 class="title">Products</h2>
+    <p class="subtitle">Browse the available items in this category</p>
+  </div>
 
   <div class="grid">
+    <article
+      class="card"
+      *ngFor="let p of products">
 
-    <article class="card"
-             *ngFor="let p of products">
+      <div class="product-image">
+        <img [src]="p.image" [alt]="p.name">
+      </div>
+
+      <div class="card-accent"></div>
 
       <div class="card-body">
+        <p class="brand-tag">{{ p.brand }}</p>
 
         <h3>{{ p.name }}</h3>
 
-        <p>
-          {{ p.brand }}
-        </p>
+        <p class="meta-line">Premium {{ p.category.toLowerCase() }} from {{ p.brand }}</p>
+        <div class="button-row">
+  <a
+    class="link-button"
+    [routerLink]="['/product', p.id]">
+    <span>View Details</span>
+    <span class="arrow">&rarr;</span>
+  </a>
 
-        <a class="link-button"
-           [routerLink]="['/product', p.id]">
+  <button
+    class="back-button"
+    type="button"
+    routerLink="/products">
+     <span>&larr;</span>
+  <span>Back</span>
+  </button>
+</div>
 
-          View Details →
-
-        </a>
-
+      
       </div>
-
     </article>
-
   </div>
-
 </section>

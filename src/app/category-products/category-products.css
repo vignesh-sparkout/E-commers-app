@@ -1,135 +1,195 @@
 .products-page {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
-  padding: 50px 24px;
+  padding: 42px 20px 52px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(14, 165, 233, 0.08);
+  color: #0369a1;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 .title {
+  margin: 0;
   text-align: center;
-  font-size: 40px;
-  margin-bottom: 40px;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
   color: #0f172a;
   font-weight: 800;
 }
 
+.subtitle {
+  max-width: 580px;
+  margin: 10px auto 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 .grid {
   display: grid;
-  grid-template-columns:
-    repeat(auto-fit, minmax(280px, 1fr));
-
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
 }
 
 .card {
-  background: white;
-
-  border-radius: 24px;
-
-  overflow: hidden;
-
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   border: 1px solid #e2e8f0;
-
-  box-shadow:
-    0 15px 40px rgba(0,0,0,0.06);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-5px);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 16px 30px rgba(37, 99, 235, 0.12);
+}
 
-  box-shadow:
-    0 20px 45px rgba(37,99,235,0.16);
+.product-image {
+  width: 100%;
+  max-width: 320px;
+  height: 220px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+.card-accent {
+  height: 4px;
+  background: linear-gradient(90deg, #0ea5e9 0%, #2563eb 50%, #4f46e5 100%);
 }
 
 .card-body {
-  padding: 26px;
+  padding: 18px;
+}
+
+.brand-tag {
+  display: inline-flex;
+  margin: 0 0 14px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .card-body h3 {
   margin: 0;
-
   color: #0f172a;
-
-  font-size: 24px;
-
+  font-size: 20px;
   font-weight: 700;
+  line-height: 1.2;
 }
 
-.card-body p {
-  margin: 12px 0 22px;
-
+.meta-line {
+  margin: 10px 0 16px;
   color: #64748b;
-
-  font-size: 15px;
+  font-size: 13px;
+  line-height: 1.55;
 }
 
-/* Premium Button */
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
 
-.link-button {
+.link-button,
+.back-button {
   position: relative;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  width: 100%;
-
-  padding: 13px 20px;
-
-  border-radius: 14px;
-
-  text-decoration: none;
-
-  background: linear-gradient(
-    135deg,
-    #2563eb,
-    #4f46e5
-  );
-
-  color: white;
-
-  font-size: 15px;
+  flex: 1;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  font-size: 13px;
   font-weight: 700;
-
+  text-decoration: none;
+  background: linear-gradient(135deg, #2563eb, #4338ca);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
   overflow: hidden;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.link-button::before {
+.link-button::before,
+.back-button::before {
   content: "";
-
   position: absolute;
-
   top: 0;
   left: -120%;
-
   width: 100%;
   height: 100%;
-
-  background: rgba(255,255,255,0.18);
-
+  background: rgba(255, 255, 255, 0.18);
   transform: skewX(-25deg);
-
   transition: 0.6s;
 }
 
-.link-button:hover::before {
+.link-button:hover::before,
+.back-button:hover::before {
   left: 120%;
 }
 
-.link-button:hover {
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 14px 30px rgba(37,99,235,0.35);
+.link-button:hover,
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
 }
 
-.link-button:active {
+.link-button:active,
+.back-button:active {
   transform: scale(0.98);
+}
+
+.arrow {
+  font-size: 16px;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .products-page {
+    padding: 32px 16px 42px;
+  }
+
+  .hero {
+    margin-bottom: 24px;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+
+  .link-button,
+  .back-button {
+    width: 100%;
+  }
 }

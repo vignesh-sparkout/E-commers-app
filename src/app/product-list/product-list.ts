@@ -12,9 +12,18 @@ import { RouterModule } from '@angular/router';
 export class ProductList {
 
   categories = [
-    'Laptop',
-    'Mobile',
-    'Watch'
+     {
+      name: 'Laptop',
+      image: '/Images/Laptop.avif'
+    },
+    {
+      name: 'Mobile',
+      image: 'Images/mobile.webp'
+    },
+    {
+      name: 'Watch',
+      image: 'Images/watch.jpg'
+    }
   ];
 
 }

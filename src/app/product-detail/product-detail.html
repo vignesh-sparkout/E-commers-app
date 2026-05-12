@@ -1,77 +1,57 @@
 <section class="detail-page">
-
-  <div class="detail-card"
-       *ngIf="product">
+  <div
+    class="detail-card"
+    *ngIf="product">
 
     <div class="product-top">
+      <span class="category-chip">{{ product.category }}</span>
 
-      <div class="product-icon">
-
-        <span *ngIf="product.category === 'Laptop'">
-          💻
-        </span>
-
-        <span *ngIf="product.category === 'Mobile'">
-          📱
-        </span>
-
-        <span *ngIf="product.category === 'Watch'">
-          ⌚
-        </span>
-
+      <div class="product-image">
+        <img [src]="product.image" [alt]="product.name">
       </div>
-
     </div>
 
     <div class="detail-content">
+      <p class="eyebrow">Premium Product</p>
 
-      <p class="eyebrow">
-        Premium Product
-      </p>
-
-      <h2>
-        {{ product.name }}
-      </h2>
+      <h2>{{ product.name }}</h2>
 
       <p class="brand">
         Brand:
-        <span>
-          {{ product.brand }}
-        </span>
+        <span>{{ product.brand }}</span>
       </p>
 
-      <p class="detail-copy">
-        {{ product.description }}
-      </p>
+      <div class="info-strip">
+        <div class="info-box">
+          <span class="info-label">Category</span>
+          <strong>{{ product.category }}</strong>
+        </div>
 
-      <h3 class="price">
-        ₹ {{ product.price }}
-      </h3>
+        <div class="info-box">
+          <span class="info-label">Price</span>
+          <strong>&#8377; {{ product.price }}</strong>
+        </div>
+      </div>
+
+      <p class="detail-copy">{{ product.description }}</p>
+
+      <h3 class="price">&#8377; {{ product.price }}</h3>
 
       <div class="actions">
-
         <button
           class="primary-btn"
           type="button"
           (click)="addToCart()">
-
           Add To Cart
-
         </button>
 
         <button
           class="secondary-btn"
           type="button"
           routerLink="/products">
-
           Back
-
         </button>
-
       </div>
-
     </div>
-
   </div>
-
 </section>

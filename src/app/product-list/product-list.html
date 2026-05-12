@@ -11,7 +11,7 @@
     </h2>
 
     <p class="subtitle">
-      Discover premium gadgets and latest tech products
+      Discover premium gadgets and latest technology products
     </p>
 
   </div>
@@ -23,36 +23,29 @@
 
       <div class="card-top">
 
-        <div class="icon">
+         <img
+    [src]="category.image"
+    [alt]="category.name">
 
-          <span *ngIf="category === 'Laptop'">
-            💻
-          </span>
+        <div class="overlay"></div>
 
-          <span *ngIf="category === 'Mobile'">
-            📱
-          </span>
-
-          <span *ngIf="category === 'Watch'">
-            ⌚
-          </span>
-
+        <div class="category-label">
+          {{ category.name }}
         </div>
 
       </div>
 
       <div class="card-body">
 
-        <h3>{{ category }}</h3>
+        <h3>{{ category.name }}</h3>
 
         <p>
-          Explore top branded
-          {{ category.toLowerCase() }}
-          with premium quality and latest features.
+          Explore premium {{ category.name.toLowerCase() }}
+          collections with modern features and top quality.
         </p>
 
         <a class="link-button"
-           [routerLink]="['/category', category]">
+           [routerLink]="['/category', category.name]">
 
           View Products →
 
