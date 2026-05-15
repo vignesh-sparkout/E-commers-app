@@ -25,7 +25,7 @@ export class ProductList {
       image: 'Images/watch.jpg'
     },
     {
-      name: 'HeadPhone',
+      name: 'Headphones',
       image: 'Images/headphone.jpg'
     },
     {

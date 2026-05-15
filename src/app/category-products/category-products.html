@@ -10,6 +10,12 @@
       class="card"
       *ngFor="let p of products">
 
+      <span
+        class="featured-badge"
+        *ngIf="p.isFeatured">
+        Featured
+      </span>
+
       <div class="product-image">
         <img [src]="p.image" [alt]="p.name">
       </div>
@@ -22,22 +28,31 @@
         <h3>{{ p.name }}</h3>
 
         <p class="meta-line">Premium {{ p.category.toLowerCase() }} from {{ p.brand }}</p>
-        <div class="button-row">
-  <a
-    class="link-button"
-    [routerLink]="['/product', p.id]">
-    <span>View Details</span>
-    <span class="arrow">&rarr;</span>
-  </a>
 
-  <button
-    class="back-button"
-    type="button"
-    routerLink="/products">
-     <span>&larr;</span>
-  <span>Back</span>
-  </button>
-</div>
+        <div class="stats-row">
+          <span class="stat-pill">Rating {{ p.rating }}</span>
+          <span class="stat-pill">Stock {{ p.stock }}</span>
+          <span class="discount-pill">{{ p.discount }}% Off</span>
+        </div>
+
+        <p class="card-price">&#8377; {{ p.price }}</p>
+
+        <div class="button-row">
+          <a
+            class="link-button"
+            [routerLink]="['/product', p.id]">
+            <span>View Details</span>
+            <span class="arrow">&rarr;</span>
+          </a>
+
+          <button
+            class="back-button"
+            type="button"
+            routerLink="/products">
+            <span>&larr;</span>
+            <span>Back</span>
+          </button>
+        </div>
 
       
       </div>
