@@ -23,7 +23,20 @@ export class ProductList {
     {
       name: 'Watch',
       image: 'Images/watch.jpg'
+    },
+    {
+      name: 'HeadPhone',
+      image: 'Images/headphone.jpg'
+    },
+    {
+      name: 'TV',
+      image: 'Images/tv.jpg'
+    },
+    {
+      name: 'Camera',
+      image: 'Images/camera.jpg'
     }
+
   ];
 
 }
